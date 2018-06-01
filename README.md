@@ -59,7 +59,7 @@ See my Jupyter notebook [here](text_norm_model.html) for the data preprocessing,
 
 My model achieves a validation loss of 0.0206 and validation accuracy of 0.9951 after 5 epochs. I want to look at the interesting (non-PLAIN or PUNCT) cases. I approximate the data that doesn't fall into these classes by filtering out all "<self>" and "sil." predictions; however, with this blunt approach I also filter out tokens like "ALA" and "FINA," for example, that were incorrectly mapped to "<self>" instead of to an acronym LETTERS normalization. In cell 58, you can see that my model seems to do reasonably well on these filtered interesting cases, correctly mapping many of the years, numbers, and some abbreviations (1895 -> "eighteen ninety five", 124 -> "one hundred twenty four", and "Pgs" -> "p p", for example) to a reasonable normalized form. However, even here we can see that my model does not perform well on specific dates, measures, and many acronyms (called LETTERS in the semiotic notation)- see "VPNs" -> "d d <self>", "3.9 kg" -> "hundred point five meters", and "May 20, 2008" -> "december twentieth two thousand eight". This final example is interesting because it is **very** close to the correct mapping, but just the month is off.
 
-I want to come back to the concern that the RNN models are just memorizing their results without doing much generalization. 
+I want to come back to the concern that the RNN models are just memorizing their results without doing much generalization.
 
 ### Future work
 
@@ -69,10 +69,10 @@ This project was very challenging for me, as though I have some experience with 
 
 ### Citations
 
-[Google Text Normalization Challenge](https://www.kaggle.com/google-nlu/text-normalization)
-[Text-to-Speech Synthesis (Taylor 2009)](http://kitabxana.net/files/books/file/1350491502.pdf)
-[Sequence-to-Sequence Learning with Neural Networks (Sutskever et al. 2014)](https://arxiv.org/pdf/1409.3215)
-[Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation (Cho et al. 2014)](https://arxiv.org/pdf/1406.1078)
-[Listen, attend and spell: A neural network for large vocabulary conversational speech recognition (Chan et al. 2016)](https://ai.google/research/pubs/pub44926)
-[RNN Approaches to Text Normalization: A Challenge (Sproat & Jaitly 2016)](https://arxiv.org/ftp/arxiv/papers/1611/1611.00068.pdf)
-[Neural Machine Translation by Jointly Learning to Align and Translate (Bahdanau et al. 2015)](https://arxiv.org/pdf/1409.0473)
++ [Google Text Normalization Challenge](https://www.kaggle.com/google-nlu/text-normalization)
++ [Text-to-Speech Synthesis (Taylor 2009)](http://kitabxana.net/files/books/file/1350491502.pdf)
++ [Sequence-to-Sequence Learning with Neural Networks (Sutskever et al. 2014)](https://arxiv.org/pdf/1409.3215)
++ [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation (Cho et al. 2014)](https://arxiv.org/pdf/1406.1078)
++ [Listen, attend and spell: A neural network for large vocabulary conversational speech recognition (Chan et al. 2016)](https://ai.google/research/pubs/pub44926)
++ [RNN Approaches to Text Normalization: A Challenge (Sproat & Jaitly 2016)](https://arxiv.org/ftp/arxiv/papers/1611/1611.00068.pdf)
++ [Neural Machine Translation by Jointly Learning to Align and Translate (Bahdanau et al. 2015)](https://arxiv.org/pdf/1409.0473)
