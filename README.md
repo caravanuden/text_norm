@@ -2,7 +2,7 @@
 
 **tl;dr**: see my Jupyter notebook [here](text_norm_model.html) for the data preprocessing, model training, and model prediction code. [Here](https://github.com/caravanuden/text_norm) is my full Github repo for the project. If you want to load my encoder-decoder model, download the hdf5 file and run the following lines of code to play around with my trained model:
 
-import load_model from keras.models
+import load_model from keras.models  
 model = load_model('saved_model.hdf5')
 
 If you want to see my predicted results on the 100,000 tokens in the test set, take a look at the "test_predictions" file. Both the model and test predictions are in my Github repo.
