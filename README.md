@@ -35,7 +35,7 @@ Additionally, the requirements on accuracy are very stringent: an English TTS sy
 Additionally, though the test data were, of course, taken from a different portion of the Wikipedia text than the training data, a huge percentage of the individual tokens of the test data are likely to be found in the training set. This in itself is not surprising, but it
 raises the concern that the RNN models are just memorizing their results without doing much generalization. I’ll come back to this when analyzing the model performance.
 
-### Model
+### Model approaches and architecture
 
 Here, I model the whole text normalization task as one where the model map a sequence of input characters to a sequence of output words.  For the input, the string must be in terms of characters, since for a string like 123, one needs to see the individual digits in the sequence to know how to read it. On the other hand, the normalized text output, which is dependent on its surrounding sentence context, is most appropriately represented as words. However, since I need to treat the input as a sequence of characters the input layer would need to be rather large in order to cover sentences of reasonable length. It's reasonable, then, to take a different approach and place each token in a window of 3 words to the left and 3 to the right, marking the to-be-normalized token with a distinctive begin and end tag <norm> ... </norm>. Here, the token "17" in the context "My little brother turned 17 years old in April" would be represented as "little brother turned <norm> 17 </norm> years old in" in the input, which then would map to "seventeen" in the output. In this way, I can limit the number of input and output nodes to something reasonable.
 
