@@ -1,6 +1,11 @@
 ## Text normalization with an LSTM encoder-decoder
 
-**tl;dr**: see my Jupyter notebook [here](text_norm_model.html) for the data preprocessing, model training, and model prediction code. [Here](https://github.com/caravanuden/text_norm) is my full Github repo for the project. If you want to load my encoder-decoder model, download the hdf5 file, import load_model from keras.models, and use "model = load_model('saved_model.hdf5')". If you want to see my predicted results on the 100,000 tokens in the test set, take a look at the "test_predictions" file. Both the model and test predictions are in my Github repo.
+**tl;dr**: see my Jupyter notebook [here](text_norm_model.html) for the data preprocessing, model training, and model prediction code. [Here](https://github.com/caravanuden/text_norm) is my full Github repo for the project. If you want to load my encoder-decoder model, download the hdf5 file and run the following lines of code to play around with my trained model:
+
+import load_model from keras.models
+model = load_model('saved_model.hdf5')
+
+If you want to see my predicted results on the 100,000 tokens in the test set, take a look at the "test_predictions" file. Both the model and test predictions are in my Github repo.
 
 Text normalization is the process of transforming text into a single canonical form that it might not have had before. In class, we've used text normalization for storing and searching information in a canonical form; ie, in the question answering assignment we converted each token to lowercase, removed punctuation, and stemmed to improve the semantic meanings stored in our word frequency vectors. Here, I extend this approach to address text-to-speech (TTS) normalization- numbers, dates, acronyms, and abbreviations are non-standard "words" in text that need to be pronounced differently in speech depending on context. For example, "123" could be pronounced "one two three" if you're counting, and "one hundred twenty-three" or even "one twenty-three" if you're referring to the number 123 or reading off an address.
 
