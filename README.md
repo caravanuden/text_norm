@@ -62,4 +62,4 @@ In the future, I would first downsample the number of PLAIN and PUNCT training s
 
 This project was very challenging for me, as though I have some experience with neural networks, I have never worked with bidirectional LSTMs or encoder/decoders before. I also had to do some data preprocessing to create the input and target vocabularies, add a context window for each token as described above, and add padding to each input sequence. This project incorporates many different ideas that we learned about in class. In class, we used text normalization (lowercasing, removing punctuation, and stemming) to improve question answering performance. I extend this approach to the TTS domain, and incorporate the general idea of using surrounding context (similar to our n-gram model) to help resolve ambiguity in the translation/normalization of the token.
 
-See my Jupyter notebook for the model [here](text_norm_model.ipynb).
+See my Jupyter notebook for the model [here](text_norm_model.html).
