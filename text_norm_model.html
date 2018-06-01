@@ -11773,7 +11773,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11782,7 +11782,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">nltk</span> <span class="k">import</span> <span class="n">FreqDist</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">keras.preprocessing.sequence</span> <span class="k">import</span> <span class="n">pad_sequences</span>
-<span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">Sequential</span><span class="p">,</span> <span class="n">load_model</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="k">import</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">TimeDistributed</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">RepeatVector</span><span class="p">,</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">Bidirectional</span>
 <span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="k">import</span> <span class="n">RMSprop</span>
 <span class="kn">from</span> <span class="nn">keras.layers.recurrent</span> <span class="k">import</span> <span class="n">LSTM</span>
@@ -11793,30 +11793,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-  from ._conv import register_converters as _register_converters
-Using TensorFlow backend.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_vocab_size</span> <span class="o">=</span> <span class="mi">250</span>
@@ -11960,7 +11940,7 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -11992,7 +11972,7 @@ _________________________________________________________________
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training data loaded in 10.547534227371216 s.
+<pre>Training data loaded in 9.865117311477661 s.
 (9918441, 5)
 (500000, 5)
 </pre>
@@ -12001,7 +11981,7 @@ _________________________________________________________________
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -12512,21 +12492,41 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load weights from training</span>
-<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s1">&#39;saved_model.hdf5&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;saved_model.hdf5&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># prepare test data in the right format</span>
@@ -12560,7 +12560,7 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[54]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -12730,10 +12730,17 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">predicted_test_sequences</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test_result&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">predicted_test_sequences</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    
+    <span class="c1"># need to get rid of &quot;\n&quot; from loading</span>
+    <span class="n">predicted_test_sequences</span> <span class="o">=</span> <span class="p">[</span><span class="n">pred</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">predicted_test_sequences</span><span class="p">]</span>
+    
+<span class="n">pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">predicted_test_sequences</span><span class="p">)</span>
+
 <span class="n">X_test_data</span><span class="p">[</span><span class="s1">&#39;after&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">X_test_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -12749,7 +12756,7 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -12862,7 +12869,7 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># boring_cases = [&#39;&lt;self&gt;&#39;, &#39;sil.&#39;]</span>
@@ -12882,7 +12889,7 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[58]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13135,14 +13142,13 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now let&#39;s look at the novel test cases- those that didn&#39;t appear in the training data</span>
 <span class="n">common</span> <span class="o">=</span> <span class="n">X_train_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">X_test_data</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;before&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">novel_cases</span> <span class="o">=</span> <span class="n">X_test_data</span><span class="p">[(</span><span class="o">~</span><span class="n">X_test_data</span><span class="o">.</span><span class="n">before</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">common</span><span class="o">.</span><span class="n">before</span><span class="p">))]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">novel_cases</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{0}</span><span class="s1"> novel cases in the test set.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">novel_cases</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 <span class="n">novel_cases</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 
@@ -13160,15 +13166,14 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(591087539, 8)
-(9863, 4)
+<pre>There are 9863 novel cases in the test set.
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[59]:</div>
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -13421,13 +13426,15 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># and now novel interesting cases</span>
-<span class="n">novel_interesting_cases</span> <span class="o">=</span> <span class="n">novel_cases</span><span class="p">[</span><span class="n">novel_cases</span><span class="p">[</span><span class="s1">&#39;after&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&lt;self&gt;&#39;</span><span class="p">]</span>
-<span class="n">novel_interesting_cases</span> <span class="o">=</span> <span class="n">novel_interesting_cases</span><span class="p">[</span><span class="n">novel_interesting_cases</span><span class="p">[</span><span class="s1">&#39;after&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;sil.&#39;</span><span class="p">]</span>
-<span class="n">novel_interesting_cases</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># and now novel important cases</span>
+<span class="c1"># I want to see if my model generalizes or is just memorizing the training data</span>
+<span class="n">novel_important_cases</span> <span class="o">=</span> <span class="n">novel_cases</span><span class="p">[</span><span class="n">novel_cases</span><span class="p">[</span><span class="s1">&#39;after&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&lt;self&gt;&#39;</span><span class="p">]</span>
+<span class="n">novel_important_cases</span> <span class="o">=</span> <span class="n">novel_important_cases</span><span class="p">[</span><span class="n">novel_important_cases</span><span class="p">[</span><span class="s1">&#39;after&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;sil.&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{0}</span><span class="s1"> novel important cases in the test set.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">novel_important_cases</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">novel_important_cases</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13440,7 +13447,18 @@ Epoch 00005: val_loss improved from 0.02203 to 0.02060, saving model to saved_mo
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>There are 1778 novel important cases in the test set.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
