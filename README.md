@@ -1,6 +1,6 @@
 ## Text Normalization with a LSTM
 
-tl;dr: see my Jupyter notebook [here](text_norm_model.html) for the data preprocessing, model training, and model prediction code.
+tl;dr: see my Jupyter notebook [here](text_norm_model.html) for the data preprocessing, model training, and model prediction code. [Here's](https://github.com/caravanuden/text_norm) my full github repo for the project.
 
 Text normalization is the process of transforming text into a single canonical form that it might not have had before. In class, we've used text normalization for storing and searching information in a canonical form; ie, in the question answering assignment we converted each token to lowercase, removed punctuation, and stemmed to improve the semantic meanings stored in our word frequency vectors. Here, I extend this approach to address text-to-speech (TTS) normalization- numbers, dates, acronyms, and abbreviations are non-standard "words" in text that need to be pronounced differently in speech depending on context. For example, "123" could be pronounced "one two three" if you're counting, and "one hundred twenty-three" or even "one twenty-three" if you're referring to the number 123 or reading off an address.
 
